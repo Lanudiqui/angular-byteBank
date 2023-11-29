@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TransferenciasService } from './services/transferencias.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ByteBank';
+  transferencias: any[] = [];
+
+  constructor(private transferenciasService: TransferenciasService){}
+
+  transferir($event: any){
+
+    this.transferenciasService.agregar($event);
+
+
+    //console.log('Este mensaje es el componente App ', $event);
+    //his.transferencias.push($event);
+  }
 }
